@@ -1,0 +1,15 @@
+---
+- name: Create App Directory
+  file:
+    path: /home/ubuntu/app
+    state: directory
+
+- name: Copy app.js to the directory
+  copy:
+    src: app.js
+    dest: /home/ubuntu/app/app.js
+
+- name: Start app.js with Node
+  shell: |
+    cd app
+    node app.js &
